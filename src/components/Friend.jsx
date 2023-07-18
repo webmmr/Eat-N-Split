@@ -1,9 +1,10 @@
 import Button from "./Button";
 
 /* eslint-disable react/prop-types */
-const Friend = ({ friend }) => {
+const Friend = ({ friend, onSelectFriend, selected }) => {
+  const isSelected = selected?.id === friend.id;
   return (
-    <li>
+    <li className={isSelected ? "selected" : ""}>
       <img src={friend.image} alt={friend.name} />
       <h3>{friend.name}</h3>
 
@@ -19,7 +20,10 @@ const Friend = ({ friend }) => {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-      <Button>Select</Button>
+
+      <Button onClick={() => onSelectFriend(friend)}>
+        {isSelected ? "Close" : "Select"}
+      </Button>
     </li>
   );
 };

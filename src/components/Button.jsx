@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
-const Button = ({ children, onShowForm }) => {
+const Button = ({ children, onClick }) => {
   return (
-    <button className="button" onClick={onShowForm}>
+    <button className="button" onClick={onClick}>
       {children}
     </button>
   );
